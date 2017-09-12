@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170907103638) do
+ActiveRecord::Schema.define(version: 20170912075520) do
+
+  create_table "feeds", force: :cascade do |t|
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.string   "post"
+    t.integer  "user_id"
+    t.integer  "status",     default: 0
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -29,9 +37,23 @@ ActiveRecord::Schema.define(version: 20170907103638) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "dob"
+    t.string   "uid"
+    t.string   "provider"
+    t.integer  "feed_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+
+  create_table "usersocials", force: :cascade do |t|
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "email"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "picture"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end

@@ -7,6 +7,9 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+   def new
+   end
+
   protected
 
     def configure_permitted_parameters
@@ -14,5 +17,7 @@ class ApplicationController < ActionController::Base
       devise_parameter_sanitizer.permit(:sign_up, keys: [:last_name])
       devise_parameter_sanitizer.permit(:sign_up, keys: [:dob])
     end
+
+
 end
 

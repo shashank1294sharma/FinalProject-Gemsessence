@@ -7,6 +7,8 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<%= render 'layouts/navigation'%>
+
 	<% if notice %>
 		  <p class="alert alert-success"><%= notice %></p>
 		<% end %>
@@ -26,9 +28,8 @@
 <% end %>
 </p>
 
-<ul class="nav">
-  <li class="active"><a href="/ideas">Ideas</a></li>
-</ul>
+<%= render 'layouts/footer' %>
+
 
 </body>
 </html>
