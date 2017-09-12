@@ -33,7 +33,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 
 gem 'omniauth-google-oauth2'
-require 'pry'
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

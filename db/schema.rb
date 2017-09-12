@@ -11,14 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170912075520) do
+ActiveRecord::Schema.define(version: 20170912102114) do
+
+  create_table "bookmarks", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.integer  "feed_id"
+  end
 
   create_table "feeds", force: :cascade do |t|
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.string   "post"
     t.integer  "user_id"
-    t.integer  "status",     default: 0
+    t.integer  "status",      default: 0
+    t.integer  "bookmark_id"
   end
 
   create_table "users", force: :cascade do |t|
