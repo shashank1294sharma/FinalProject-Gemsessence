@@ -1,6 +1,6 @@
 <div class="row">
 	<div class="col-xs-12">
-		<%= form_for(@feeds, :html => {class: "form-horizontal", role: "form"}) do |f|%>
+		<%= form_for(@feed, :html => {class: "form-horizontal", role: "form"}) do |f|%>
 			<div class="form-group">
 				<div class="control-label col-sm-2">
 					<%= f.label :post%> 
@@ -8,8 +8,20 @@
 				<div class="col-sm-8">
 				<%= f.text_field :post, class: "form-control", placeholder: "Title of article", autofocus: true%>
 				</div>
+				 <div class="form-group">
+				<%= f.radio_button :status, 'only_me' %>
+				<%= f.label :status, 'Only me' %>
+
+				<%= f.radio_button :status, 'public' %>
+				<%= f.label :status, 'public' %>
+
+				<%= f.radio_button :status, 'friends' %>
+				<%= f.label :status, 'friends' %>
+			  </div>
+
             </div>
-			
+
+             
 <!-- 
 			<div class="form-group">
 				<div class="control-label col-sm-2">
@@ -29,7 +41,7 @@
 			
 		<%end%>
 	      <div class="col-xs-4 col-xs-offset-4">
-          [ <%= link_to "Cancel request and Back to Article Listing" , feeds_path %> ]
+          [ <%= link_to "Cancel post and Back to Feed Listing" , feeds_path %> ]
           </div>
 
    </div>
