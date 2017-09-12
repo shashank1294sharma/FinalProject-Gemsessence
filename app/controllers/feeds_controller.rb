@@ -19,8 +19,24 @@ class FeedsController < ApplicationController
 		 end
 	end
 
+	def update
+		
+		if @feeds.update(feed_params)
+			flash[:success] = "Feed updated succesfully"
+			redirect_to feed_path(@feeds)
+		else
+			render 'edit'
+		end
+	end
+
 	def show
 	end
+
+	def destroy
+		@feeds.destroy
+		flash[:danger] = "Feed deleted succesfully"
+		redirect_to feeds_path
+	end		
   
   private
 
