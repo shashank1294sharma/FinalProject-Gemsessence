@@ -13,6 +13,12 @@ Rails.application.routes.draw do
 
   resources :feeds
 
+  resources :friendships
+
+  get 'search_friends', to: "application#search"
+
+  post 'add_friend', to: "application#add_friend"
+
 
   
   # Example of regular route:
