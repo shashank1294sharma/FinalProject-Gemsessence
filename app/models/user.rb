@@ -1,14 +1,17 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  has_many :feeds
-  has_many :bookmarks, through: :feeds
-
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
   devise :omniauthable, omniauth_providers: [:google_oauth2]
+
+   has_many :feeds
+  has_many :bookmarks, through: :feeds
+  has_many :friendships
+  has_many :friends, through: :friendships
+  
 
 
   def self.from_omniauth(auth)

@@ -7,9 +7,11 @@ Rails.application.routes.draw do
   # root 'welcome#index'
   root to: "application#new"
 
+  get 'my_friends', to: "application#my_friends"
+
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
- resources :feeds
+  resources :feeds
 
 
   

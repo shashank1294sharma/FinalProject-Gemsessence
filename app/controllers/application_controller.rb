@@ -9,7 +9,10 @@ class ApplicationController < ActionController::Base
 
    def new
    end
-
+   
+   #friends Functionality##########################
+   def my_friends
+   end 
   protected
 
     def configure_permitted_parameters

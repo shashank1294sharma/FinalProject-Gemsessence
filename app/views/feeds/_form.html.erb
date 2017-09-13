@@ -1,25 +1,24 @@
 <div class="row">
-	<div class="col-xs-12">
-		<%= form_for(@feed, :html => {class: "form-horizontal", role: "form"}) do |f|%>
-			<div class="form-group">
-				<div class="control-label col-sm-2">
-					<%= f.label :post%> 
-				</div>
-				<div class="col-sm-8">
-				<%= f.text_field :post, class: "form-control", placeholder: "Title of article", autofocus: true%>
-				</div>
-				 <div class="form-group">
-				<%= f.radio_button :status, 'only_me' %>
-				<%= f.label :status, 'Only me' %>
+<div class="col-xs-12">
+	<%= form_for(@feed, :html => {class: "form-horizontal", role: "form"}) do |f|%>
+	<div class="form-group">
+	  <div class="control-label col-sm-2">
+	     <%= f.label :post%> 
+	  </div>
+		<div class="col-sm-8">
+		  <%= f.text_field :post, class: "form-control", placeholder: "Title of article", autofocus: true%>
+		</div>
+		<div class="form-group">
+			<%= f.radio_button :status, 'only_me' %>
+			<%= f.label :status, 'Only me' %>
 
-				<%= f.radio_button :status, 'public' %>
-				<%= f.label :status, 'public' %>
+			<%= f.radio_button :status, 'for_all' %>
+			<%= f.label :status, 'public' %>
 
-				<%= f.radio_button :status, 'friends' %>
-				<%= f.label :status, 'friends' %>
-			  </div>
-
-            </div>
+			<%= f.radio_button :status, 'friends' %>
+			<%= f.label :status, 'friends' %>
+		</div>
+	</div>
 
              
 <!-- 
@@ -31,18 +30,16 @@
 				 <%#= f.text_area :description, rows: 10 , class: "form-control" , placeholder: "Description"%>
 			    </div>
 			 </div>
- -->
-			<div class="form-group">
-				<div class="col-sm-offset-2 col-sm-10">
-			
-				 <%= f.submit class: "btn btn-primary btn-lg"%>
-				</div>
-			</div>
-			
-		<%end%>
-	      <div class="col-xs-4 col-xs-offset-4">
-          [ <%= link_to "Cancel post and Back to Feed Listing" , feeds_path %> ]
-          </div>
+-->
+	<div class="form-group">
+	  <div class="col-sm-offset-2 col-sm-10">
+	    <%= f.submit class: "btn btn-primary btn-lg"%>
+	  </div>
+	</div>	
+	<%end%>
+	<div class="col-xs-4 col-xs-offset-4">
+	  [ <%= link_to "Cancel post and Back to Feed Listing" , feeds_path %> ]
+	</div>
 
    </div>
 </div>
